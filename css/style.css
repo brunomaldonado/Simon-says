@@ -25,10 +25,10 @@ html, body{
   font-style: normal; */
 }
 
-@font-face {
+/* @font-face {
   font-family: "old_london";
   src: url("../Fonts/old_london/OldLondon.ttf") format('truetype');
-}
+} */
 
 @font-face {
   font-family: "rainyhearts";
@@ -67,9 +67,10 @@ header{
 }
 
 .created h1{
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   color: #010d13;
-  font-family: "old_london";
+  font-family: 'Poppins', sans-serif;
+  /* font-family: "old_london"; */
 }
 
 .time-date h3{

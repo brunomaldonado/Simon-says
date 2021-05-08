@@ -5,7 +5,7 @@
 //   grow: 'fullscreen',
 // })
 
-document.getElementById('dateCreate').innerHTML = `Created: May 05, 2021`
+// document.getElementById('dateCreate').innerHTML = `Created: May 05, 2021`
 
 function generateTime(){
   let timeNow = new Date();

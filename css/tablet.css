@@ -28,7 +28,9 @@ header{
 .created h1{
   font-size: 2.5rem;
   color: #010d13;
-  font-family: "old_london";
+  font-family: 'Poppins', sans-serif;
+
+  /* font-family: "old_london"; */
 }
 
 .time-date h3{
