@@ -1,0 +1,72 @@
+header{
+  text-align: center;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title{
+  text-align: center;
+  margin-top: 35px;
+  font-size: 2.5rem;
+  font-family: "Poppins";
+}
+
+.created{
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 85vw;
+  background-color: rgba(54, 48, 48, 0.774); 
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 6px; 
+  padding: 5px;
+  margin: 0 auto;
+}
+
+.created h2{
+  font-size: 2.3rem;
+  color: #010d13;
+  font-family: "old_london";
+}
+
+.time-date h3{
+  font-family: "DS-Digital";
+  color: rgb(16, 233, 16);
+  font-size: 2.8rem;
+}
+
+.time-date h2{
+  font-size: 2.3rem;
+  font-family: "rainyhearts";
+  color: #f1f5f7;
+}
+
+.divisions{
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  top: 35px;
+  margin: 0 100px;
+}
+
+.level h2{
+  font-size: 2.3rem;
+}
+
+.level p{
+  font-size: 2.3rem;
+  font-weight: bold;
+  margin: 0 15px;
+}
+
+.gameboard {
+  margin-top: 120px;
+}
+
+footer{
+  text-align: center;
+  padding: 10px;
+  font-size: 1.8rem;
+}

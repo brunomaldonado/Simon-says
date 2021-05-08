@@ -1,0 +1,7 @@
+.divisions{
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  top: 35px;
+  margin: 0 490px;
+}

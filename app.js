@@ -240,8 +240,8 @@ class Play{
       backdrop: true,
       buttonsStyling: true,
       showConfirmButton: false,
-      timer: 2500,
-      timerProgressBar: true,
+      // timer: 2500,
+      // timerProgressBar: true,
     })
       .then(() => {this.initialize()})
       // .then(this.generateSounds('win'))
@@ -255,8 +255,8 @@ class Play{
       icon: 'error',
       backdrop: true,
       showConfirmButton: false,
-      timer: 2500,
-      timerProgressBar: true,
+      // timer: 2500,
+      // timerProgressBar: true,
     })
       .then(() => {
         this.deleteClickEvent();

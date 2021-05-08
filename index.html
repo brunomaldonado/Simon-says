@@ -11,53 +11,47 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
   <title>Simon says</title>
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/tablet.css" media="(min-width: 768px)">
+  <link rel="stylesheet" href="./css/desktop.css" media="(min-width: 1014px)">
 </head>
 
-<body>
-  <header>
-    <div class="created">
-      <h2>Created: May 05, 2021</h2>
-      <div class="time-date">
-        <h3 id="time"></h3>
-        <h2 id="date">dd</h2>
+<body id="randomBg">
+  <div class="main-container">
+    <header>
+      <div class="created">
+        <h2>Created: May 05, 2021</h2>
+        <div class="time-date">
+          <h3 id="time"></h3>
+          <h2 id="date">dd</h2>
+        </div>
+      </div>
+    </header>
+  
+    <h1 class="title">Simon says color</h1>
+  
+    <div class="divisions">
+      <div class="level">
+        <h2>Level</h2>
+        <p id="level">1</p>
+      </div>
+      <div class="level">
+        <h2>Points</h2>
+        <p id="points">0</p>
       </div>
     </div>
-  </header>
-
-  <h1 class="title">Simon says color</h1>
-
-  <div class="divisions">
-    <div class="level">
-      <h2>Level</h2>
-      <p id="level">1</p>
+  
+    <section class="sound">
+      <audio id="sound_lose" src="./sound/fail_champions.mp3"></audio>
+      <audio id="sound_win" src="./sound/win_champions.mp3"></audio>
+    </section>
+  
+    <div class="gameboard">
+      <div id="blue" class="sky blue color left" data-color="blue"></div>
+      <div id="violet" class="violet color right" data-color="violet"></div>
+      <div id="orange" class="orange color left" data-color="orange"></div>
+      <div id="green" class="green color right" data-color="green"></div>
+      <button id="btnPlay" class="btn" onclick="startGame()">Play!</button>
     </div>
-    <div class="level">
-      <h2>Points</h2>
-      <p id="points">0</p>
-    </div>
-    <!-- <p id="clock">clock</p> -->
-  </div>
-
-  <!-- <main class="main-container"> -->
-  <section class="sound">
-    <audio id="sound_lose" src="./sound/fail_champions.mp3"></audio>
-    <audio id="sound_win" src="./sound/win_champions.mp3"></audio>
-  </section>
-
-  <div class="gameboard">
-    <div id="blue" class="sky blue color left" data-color="blue"></div>
-    <div id="violet" class="violet color right" data-color="violet"></div>
-    <div id="orange" class="orange color left" data-color="orange"></div>
-    <div id="green" class="green color right" data-color="green"></div>
-    <button id="btnPlay" class="btn" onclick="startGame()">Play!</button>
-
-    <!-- <div class="center">
-        <div class="outer circle">
-          <button id="btnPlay" class="btn" onclick="startGame()">Play!</button>
-          <span></span>
-          <span></span>
-        </div>
-      </div> -->
 
   </div>
 
@@ -67,6 +61,27 @@
 
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <script src="./app.js"></script>
+
+  <script>
+    function changeBg() {
+
+      const images = [
+        'url("../image/1.jpg")',
+        'url("../image/2.jpg")',
+        'url("../image/3.jpg")',
+        'url("../image/4.jpg")',
+        'url("../image/5.jpg")',
+        'url("../image/6.jpg")',
+        'url("../image/7.jpg")',
+      ]
+
+      const body = document.querySelector('body')
+      const bg = images[Math.floor(Math.random() * images.length)];
+      body.style.backgroundImage = bg;
+    }
+    setInterval(changeBg, 5000);
+  </script>
+
 </body>
 
 </html>
