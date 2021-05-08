@@ -5,34 +5,18 @@
 }
 
 html, body{
-  height:100vh;
+  /* height:100vh; */
   width: 100%;
   font-size: 62.5%;
   font-family: 'Poppins', sans-serif;
 }
 
 #randomBg{
-  background: url(../image/5.jpg);
+  background: url(../image/6.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   transition: 2s;
 }
-
-/* section{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height:100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height:100vh;
-  background: url(../image/1.jpg);
-  background-repeat: no-repeat;
-  background-size: cover
-} */
 
 @font-face{
   font-family: "DS-Digital";
@@ -82,8 +66,8 @@ header{
   margin: 0 auto;
 }
 
-.created h2{
-  font-size: 1.7rem;
+.created h1{
+  font-size: 1.8rem;
   color: #010d13;
   font-family: "old_london";
 }
@@ -222,27 +206,6 @@ header{
 .lost{
   font-size: 1.8rem;
   color: rgb(211, 84, 84);
-}
-
-.bonus{
-  display:flex;
-  position: absolute;
-  padding-top: 490px;
-}
-
-.coinone{
-  position: relative;
-  right: 55px;
-}
-
-.cointwo{
-  position: relative;
-  bottom: 35px;
-}
-
-.cointhree{
-  position: relative;
-  left: 55px;
 }
 
 footer{
