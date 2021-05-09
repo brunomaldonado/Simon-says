@@ -8,14 +8,28 @@
   <meta name="robots" content="follow, html">
   <meta name="description" content="Simon says app">
   <meta name="author" content="brunomaldonado" <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" <link rel="preconnect"
+    href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap" rel="stylesheet">
   <title>Simon says</title>
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/animations.css">
   <link rel="stylesheet" href="./css/tablet.css" media="(min-width: 768px)">
-  <link rel="stylesheet" href="./css/desktop.css" media="(min-width: 1014px)">
+  <link rel="stylesheet" href="./css/desktop.css" media="(min-width: 1025px)">
 </head>
 
 <body id="randomBg">
+  <ul class="cb-slideshow">
+    <li><span>Image 01</span></li>
+    <li><span>Image 02</span></li>
+    <li><span>Image 03</span></li>
+    <li><span>Image 04</span></li>
+    <li><span>Image 05</span></li>
+    <li><span>Image 06</span></li>
+    <li><span>Image 07</span></li>
+  </ul>
   <div class="main-container">
     <header>
       <div class="created">
@@ -26,9 +40,9 @@
         </div>
       </div>
     </header>
-  
+
     <h1 class="title">Simon says color</h1>
-  
+
     <div class="divisions">
       <div class="level">
         <h2>Level</h2>
@@ -39,12 +53,12 @@
         <p id="points">0</p>
       </div>
     </div>
-  
+
     <section class="sound">
       <audio id="sound_lose" src="./sound/fail_champions.mp3"></audio>
       <audio id="sound_win" src="./sound/win_champions.mp3"></audio>
     </section>
-  
+
     <div class="gameboard">
       <div id="blue" class="sky blue color left" data-color="blue"></div>
       <div id="violet" class="violet color right" data-color="violet"></div>

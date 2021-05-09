@@ -1,3 +1,8 @@
+.title{
+  font-family: 'Love Ya Like A Sister', cursive;
+  font-size: 3rem;
+}
+
 .divisions{
   display: flex;
   justify-content: space-between;

@@ -10,7 +10,7 @@ header{
   text-align: center;
   margin-top: 35px;
   font-size: 2.5rem;
-  font-family: "Poppins";
+  font-family: 'Love Ya Like A Sister', cursive;
 }
 
 .created{
@@ -28,9 +28,7 @@ header{
 .created h1{
   font-size: 2.5rem;
   color: #010d13;
-  font-family: 'Poppins', sans-serif;
-
-  /* font-family: "old_london"; */
+  font-family: 'Love Ya Like A Sister', cursive;
 }
 
 .time-date h3{
@@ -41,8 +39,8 @@ header{
 
 .time-date h2{
   font-size: 2.3rem;
-  font-family: "rainyhearts";
-  color: #f1f5f7;
+  font-family: "old_london";
+  color: #010d13;
 }
 
 .divisions{

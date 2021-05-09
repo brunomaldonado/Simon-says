@@ -9,14 +9,16 @@ html, body{
   width: 100%;
   font-size: 62.5%;
   font-family: 'Poppins', sans-serif;
+  overflow-y: scroll;
+	overflow-x: hidden;
 }
 
-#randomBg{
+/* #randomBg{
   background: url(../image/6.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   transition: 2s;
-}
+} */
 
 @font-face{
   font-family: "DS-Digital";
@@ -25,10 +27,10 @@ html, body{
   font-style: normal; */
 }
 
-/* @font-face {
+@font-face {
   font-family: "old_london";
   src: url("../Fonts/old_london/OldLondon.ttf") format('truetype');
-} */
+}
 
 @font-face {
   font-family: "rainyhearts";
@@ -36,6 +38,7 @@ html, body{
 }
 
 .main-container{
+	position: relative;
   height: 100vh;
 }
 
@@ -51,7 +54,7 @@ header{
   text-align: center;
   margin-top: 25px;
   font-size: 1.8rem;
-  font-family: "Poppins";
+  font-family: 'Love Ya Like A Sister', cursive;
 }
 
 .created{
@@ -69,7 +72,7 @@ header{
 .created h1{
   font-size: 1.5rem;
   color: #010d13;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Love Ya Like A Sister', cursive;
   /* font-family: "old_london"; */
 }
 
@@ -81,8 +84,8 @@ header{
 
 .time-date h2{
   font-size: 1.4rem;
-  font-family: "rainyhearts";
-  color: #f1f5f7;
+  font-family: "old_london";
+  color: #010d13;
 }
 
 .divisions{
@@ -213,4 +216,5 @@ footer{
   text-align: center;
   padding: 10px;
   font-size: 1.2rem;
+  position: relative;
 }
