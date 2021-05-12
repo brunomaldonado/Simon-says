@@ -1,8 +1,12 @@
 
 // swal.fire({
 //   title: 'Welcome to this App',
+//   text: 'Memoriza el orden en que se iluminan la paleta de colores y repite el orden, supera los niveles champions',
 //   background: '#000',
 //   grow: 'fullscreen',
+//   background: '#045f',
+//   backdrop: true,
+
 // })
 
 // document.getElementById('dateCreate').innerHTML = `Created: May 05, 2021`
