@@ -12,13 +12,13 @@ html, body{
   overflow-y: scroll;
 	overflow-x: hidden;
 }
-
+/* 
 #randomBg{
   background: url(../image/6.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   transition: 2s;
-}
+} */
 
 @font-face{
   font-family: "DS-Digital";
