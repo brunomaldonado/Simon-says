@@ -19,7 +19,7 @@ The algorithm behind this game is artificial intelligence (AI), donde cada palet
 </p>
 
 ### Go to the Game.
-right [here](https://"here")
+right [here](https://brunomaldonado.github.io/Simon-says/ "here")
 
 ------------
 
