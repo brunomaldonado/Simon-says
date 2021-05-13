@@ -119,11 +119,7 @@ header{
   max-width: 45vh;
   position: relative;
   /* animation: gameboard 25s linear infinite forwards; */
-<<<<<<< HEAD
-  margin-top: 50px;
-=======
-  margin-top: 60px;
->>>>>>> 666d85b82f0af333f81bcea34a1f55c11d86c41d
+  margin: 60px;
 }
 
 @keyframes gameboard {
