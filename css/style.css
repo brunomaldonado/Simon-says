@@ -11,6 +11,7 @@ html, body{
   font-family: 'Poppins', sans-serif;
   overflow-y: scroll;
 	overflow-x: hidden;
+  height: 100%;
 }
 /* 
 #randomBg{
@@ -39,7 +40,7 @@ html, body{
 
 .main-container{
 	position: relative;
-  height: 100vh;
+  height: 94vh;
 }
 
 header{
