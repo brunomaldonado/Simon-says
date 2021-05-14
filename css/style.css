@@ -5,20 +5,19 @@
 }
 
 html, body{
-  /* height:100vh; */
   width: 100%;
   font-size: 62.5%;
   font-family: 'Poppins', sans-serif;
-  overflow-y: scroll;
-	overflow-x: hidden;
+  /* overflow-y: scroll;
+	overflow-x: hidden; */
 }
 
-#randomBg{
+/* #randomBg{
   background: url(../image/6.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   transition: 2s;
-}
+} */
 
 @font-face{
   font-family: "DS-Digital";
@@ -39,7 +38,7 @@ html, body{
 
 .main-container{
 	position: relative;
-  height: 100vh;
+  height: 93vh;
 }
 
 header{
@@ -61,7 +60,7 @@ header{
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  width: 95vw;
+  width: 95%;
   background-color: rgba(54, 48, 48, 0.774); 
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 6px; 
@@ -93,7 +92,7 @@ header{
   justify-content: space-between;
   position: relative;
   top: 25px;
-  margin: 0 30px;
+  margin: 0 35px;
 }
 
 .level h2{
@@ -114,10 +113,16 @@ header{
   flex-wrap: wrap;
   align-items: center;
   overflow: hidden;
-  margin: 0 auto;
   max-height: 45vh;
   max-width: 45vh;
   position: relative;
+  margin: 0 auto;
+  /* position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto; */
   /* animation: gameboard 25s linear infinite forwards; */
   margin-top: 15%;
 }
@@ -183,6 +188,7 @@ header{
 
 .btn {
   position: absolute;
+  /* position: relative; */
   width: 90px;
   height: 90px;
   border-radius: 50%;
@@ -214,7 +220,7 @@ header{
 
 footer{
   text-align: center;
-  padding: 10px;
+  /* padding: 10px; */
   font-size: 1.2rem;
   position: relative;
 }
