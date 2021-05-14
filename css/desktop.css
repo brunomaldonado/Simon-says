@@ -7,33 +7,6 @@
   width: 85%;
 }
 
-/* .divisions{
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  top: 35px;
-  margin: 0 490px;
-}
-
-.divisions{
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  top: 25px;
-  margin: 0 35px;
-}
-
-.level h2{
-  font-size: 1.5rem;
-}
-
-.level p{
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin: 0 15px;
-} */
-
-
 .divisions{
   display: flex;
   justify-content: space-between;
