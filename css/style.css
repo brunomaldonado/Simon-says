@@ -8,11 +8,20 @@ html, body{
   width: 100%;
   font-size: 62.5%;
   font-family: 'Poppins', sans-serif;
+<<<<<<< HEAD
   /* overflow-y: scroll;
 	overflow-x: hidden; */
 }
 
 /* #randomBg{
+=======
+  overflow-y: scroll;
+	overflow-x: hidden;
+  height: 100%;
+}
+/* 
+#randomBg{
+>>>>>>> a0de15613b46d1b03a2bdd16df1909205ade695a
   background: url(../image/6.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -38,7 +47,11 @@ html, body{
 
 .main-container{
 	position: relative;
+<<<<<<< HEAD
   height: 93vh;
+=======
+  height: 94vh;
+>>>>>>> a0de15613b46d1b03a2bdd16df1909205ade695a
 }
 
 header{
@@ -124,7 +137,7 @@ header{
   bottom: 0;
   margin: auto; */
   /* animation: gameboard 25s linear infinite forwards; */
-  margin-top: 15%;
+  margin-top: 60px;
 }
 
 @keyframes gameboard {
