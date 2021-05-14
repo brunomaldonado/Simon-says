@@ -61,6 +61,21 @@ header{
   margin: 0 15px;
 }
 
+.gameboard {
+  height: 100vh;
+  width: 100vh;
+  border-radius: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  overflow: hidden;
+  max-height: 45vh;
+  max-width: 45vh;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 60px;
+}
+
 .btn {
   position: absolute;
   width: 125px;

@@ -124,7 +124,7 @@ header{
   bottom: 0;
   margin: auto; */
   /* animation: gameboard 25s linear infinite forwards; */
-  margin-top: 60px;
+  margin-top: 40px;
 }
 
 @keyframes gameboard {
