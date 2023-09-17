@@ -37,6 +37,17 @@ const btnPlay= document.getElementById('btnPlay');
 const sound_lose = document.getElementById('sound_lose');
 const sound_win = document.getElementById('sound_win');
 const LAST_LEVEL = 7;
+const show_modal = document.querySelector(".show_modal")
+const modal_container = document.querySelector(".modal_container")
+const modal_body = document.querySelector(".modal_body")
+const close_modal = document.getElementsByClassName(".close_modal")
+const btnSound = document.querySelector(".grid-btn .btn-sound");
+const audio = document.querySelector("audio");
+
+let sound = false;
+let timer;
+let levels = [];
+let ratings = [];
 
 const sounds = {
   blue: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound1.mp3'),
@@ -166,11 +177,23 @@ class Play{
     let time = 0;
     for (let i = 0; i < this.level ; i++) {
       const color = this.transformNumberToColor(this.sequence[i]);
+      // document.querySelector(".light").classList.add('show-bg');
+      console.log("color iluminate", color)
+     
       // LLamar la funcion para que ilumine ese color 
-      setTimeout(() =>this.generateSoundsColor(color), 1000 * i);
-     setTimeout(() =>  this.iluminateColor(color), 1000 * i);
-     time ++;
-    //  console.log(color)
+      // setTimeout(() =>this.generateSoundsColor(color), 1000 * i);
+      if (sound) {
+        // document.querySelector(".light").classList.add('show-bg');
+        const duration = setTimeout(() =>this.generateSoundsColor(color), 1000 * i);
+        // console.log("duration", duration)
+        clearTimeout(timer)
+        audio.play()
+        timer = setTimeout(() => {
+          audio.pause()
+        }, duration);
+      }
+      setTimeout(() =>  this.iluminateColor(color), 1000 * i);
+      time ++;
     }
     setTimeout(() =>this.colorClickEvent(), 700 * time)
   }
@@ -178,6 +201,14 @@ class Play{
   iluminateColor(color){
     this.colors[color].classList.add('light')
     setTimeout(() => this.turnOffColor(color) , 350);
+    console.log("show background image")
+    const className = document.getElementsByClassName("light")
+    for (let index = 0; index < className.length; index++) {
+      const element = className[index];
+      element.classList.remove('hide-bg')
+      // document.querySelector(".light").classList.add('hide-bg');
+      console.log("element", element.classList.remove('hide-bg'))
+    }
   }
 
   turnOffColor(color){
@@ -206,12 +237,16 @@ class Play{
   chooseColor(ev){
    //console.log(this) // el this sigue siendo el mismo nuevo objeto play
     // console.log(ev);
-    //Que boton o color dio click al usuario y el numeor del color
+    //Que color dio click al usuario y el numero del color 
     const colorName = ev.target.dataset.color;
+    // console.log("color", colorName)
     const colorNumber = this.transformColorToNumber(colorName)
     this.iluminateColor(colorName);
+    document.querySelector(".light").classList.add('hide-bg');
+    console.log("color click", colorNumber)
 
     if (colorNumber === this.sequence[this.subLevel]) {
+      // document.querySelector(".light").classList.remove('hide-bg');
       //metodo o funcion para incrementear puntos.
       this.increaseNumberPoints();
       this.subLevel++;
@@ -231,43 +266,121 @@ class Play{
         }
       }
     }else{
-      this.increaseLevel(1);
-      this.increaseNumberPoints(1);
       this.lose();
-      console.log("You LOST")
+      // this.increaseLevel(1);
+      // this.increaseNumberPoints(1);
+      console.log("You LOSE")
+      if (sound) {
+        audio.pause();
+        audio.currentTime = 0;
+      }
     } 
   }
   //Alert you Won
   win(){
-    Swal.fire({
-      title: 'Simon says champions',
-      html: '<b class="won">You WON</b>',
-      icon: 'success',
-      backdrop: true,
-      buttonsStyling: true,
-      showConfirmButton: false,
-      // timer: 2500,
-      // timerProgressBar: true,
-    })
-      .then(() => {this.initialize()})
-      // .then(this.generateSounds('win'))
+    // console.log("WIINNNNNN")
+    // this.initialize()
+    document.querySelector(".show_modal img").style.display = 'block';
+    document.querySelector(".show_modal .wrapper").style.display = 'block';
+    // this.generateSounds('win')
+    show_modal.style.display = 'block';
+    modal_container.style.display = 'block';
+    modal_body.style.display = 'visible';
+    modal_body.innerHTML = `
+      <div class="header_top">
+        <div class="level">
+          <h2>Level</h2>
+          <p>${levels.length + 1}</p>
+        </div>
+        <div class="level">
+          <h2>Points</h2>
+          <p>${ratings.length}</p>
+        </div>
+      </div>
+      <h1>Congratulations. Simon says, You won champion.</h1>
+      <img id="winner" class="winner" src="./assets/gif/6ob.gif" alt="winner">
+      <img id="winner" class="winner" src="./assets/gif/6ob.gif" alt="winner">
+  `;
+
+  document.getElementById("close_modal").addEventListener("click", () => {
+    this.deleteClickEvent();
+    this.initialize();
+    this.increaseLevel(1);
+    this.increaseNumberPoints(1);
+    console.log("close")
+    show_modal.style.display = 'none';
+    btnPlay.classList.remove('hide');
+    levels.length = 0;
+    ratings.length = 0;
+  });
+    // Swal.fire({
+    //   title: 'Simon says champions',
+    //   html: '<b class="won">You WON</b>',
+    //   icon: 'success',
+    //   backdrop: true,
+    //   buttonsStyling: true,
+    //   showConfirmButton: false,
+    //   // timer: 2500,
+    //   // timerProgressBar: true,
+    // })
+    //   .then(() => {this.initialize()})
+    //   .then(this.generateSounds('win'))
   }
 //Alert you lost
   lose(){
-    this.generateSounds('lose')
-    Swal.fire({
-      title: 'Simon says champions',
-      html: '<b class="lost">You LOST</b>',
-      icon: 'error',
-      backdrop: true,
-      showConfirmButton: false,
-      // timer: 2500,
-      // timerProgressBar: true,
-    })
-      .then(() => {
-        this.deleteClickEvent();
-        this.initialize();
-      })
+    // this.generateSounds('lose')
+    // console.log("level=====>", levels.length)
+    // console.log("ratings====>", ratings.length)
+    document.querySelector(".show_modal img").style.display = 'none';
+    document.querySelector(".show_modal .wrapper").style.display = 'none';
+
+    show_modal.style.display = 'block';
+    modal_container.style.display = 'block';
+    modal_body.style.display = 'visible';
+    modal_body.innerHTML = `
+      <div class="header_top">
+        <div class="level">
+          <h2>Level</h2>
+          <p>${levels.length + 1}</p>
+        </div>
+        <div class="level">
+          <h2>Points</h2>
+          <p>${ratings.length}</p>
+        </div>
+      </div>
+      <h1 class="title_modal">You Lost Champion.</h1>
+      <img id="loser" class="loser" src="./assets/gif/DE4.gif" alt="loser">
+  `;
+
+  document.getElementById("close_modal").addEventListener("click", () => {
+    this.increaseLevel(1);
+    this.increaseNumberPoints(1);
+    this.deleteClickEvent();
+    this.initialize();
+    console.log("close")
+    show_modal.style.display = 'none';
+    btnPlay.classList.remove('hide');
+    levels.length = 0;
+    ratings.length = 0;
+  });
+    
+    // this.generateSounds('lose')
+    // this.deleteClickEvent();
+    // this.initialize();
+    // console.log("LOSEEEEEEER")
+    // Swal.fire({
+    //   title: 'Simon says champions',
+    //   html: '<b class="lost">You LOST</b>',
+    //   icon: 'error',
+    //   backdrop: true,
+    //   showConfirmButton: false,
+    //   // timer: 2500,
+    //   // timerProgressBar: true,
+    // })
+    //   .then(() => {
+    //     this.deleteClickEvent();
+    //     this.initialize();
+    //   })
   }
 
   increaseNumberPoints(reboot){
@@ -275,6 +388,8 @@ class Play{
     var numberPoints = points.innerHTML;
     (reboot) ? numberPoints = 0 : numberPoints ++;
     points.innerHTML = numberPoints;
+    // console.log("Points", numberPoints)
+    ratings.push(numberPoints);
   }
 
   increaseLevel(reboot){
@@ -282,8 +397,21 @@ class Play{
     var number = level.innerHTML;
     (reboot) ? number = 0 : number ++;
     level.innerHTML = number;
+    // console.log("levels", number)
+    levels.push(number);
   }
+
 }
+
+btnSound.addEventListener("click", function () {
+  sound = !sound;
+  const ariaLabel =
+    this.getAttribute("aria-label") == "Enable sound"
+      ? "Disable sound"
+      : "Enable sound";
+  this.setAttribute("aria-label", ariaLabel);
+  this.classList.toggle("btn-sound-off");
+});
 
 function startGame(){
   window.play = new Play()

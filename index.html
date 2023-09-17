@@ -8,7 +8,6 @@
   <meta name="robots" content="follow, html">
   <meta name="description" content="Simon says app">
   <meta name="author" content="brunomaldonado">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -16,11 +15,11 @@
   <title>Simon says</title>
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/animations.css">
-  <link rel="stylesheet" href="./css/tablet.css" media="(min-width: 768px)">
-  <link rel="stylesheet" href="./css/desktop.css" media="(min-width: 1025px)">
+  <!-- <link rel="stylesheet" href="./css/tablet.css" media="(min-width: 768px)"> -->
+  <!-- <link rel="stylesheet" href="./css/desktop.css" media="(min-width: 1025px)"> -->
 </head>
 
-<body id="randomBg">
+<body>
   <ul class="cb-slideshow">
     <li><span>Image 01</span></li>
     <li><span>Image 02</span></li>
@@ -30,20 +29,47 @@
     <li><span>Image 06</span></li>
     <li><span>Image 07</span></li>
   </ul>
-  <div class="main-container">
-    <header>
-      <div class="created">
-        <h1 id="dateCreate">Created: May 05, 2021</h1>
-        <div class="time-date">
-          <h3 id="time"></h3>
-          <h2 id="date"></h2>
+  <section class="sound">
+    <audio id="sound_lose" src="./sound/fail_champions.mp3"></audio>
+    <audio id="sound_win" src="./sound/win_champions.mp3"></audio>
+  </section>
+
+  <div class="cont">
+  <header>
+    <div class="created">
+      <h1 id="dateCreate">Created: May 05, 2021</h1>
+      <div class="time-date">
+        <h3 id="time"></h3>
+        <h2 id="date"></h2>
+      </div>
+    </div>
+  </header>
+
+  <main class="main_container" id="main_container">
+    <!-- <div class="pallet">
+      <div class="circle">
+        <div>
+          <div id="blue" class="sky blue color circle12" data-color="blue"></div>
+          <div id="orange" class="orange color circle13" data-color="orange"></div>
+        </div>
+        <div>
+          <div id="violet" class="violet color circle10" data-color="violet"></div>
+          <div id="green" class="green color circle11" data-color="green"></div>
         </div>
       </div>
-    </header>
-
-    <h1 class="title">Simon says color</h1>
-
-    <div class="divisions">
+      <button id="btn_playPlay" class="btn_play_play" onclick="startGame()">Play!</button>
+    </div> -->
+    
+    <div class="grid grid-btn">
+      <h1 class="title">Simon <span>s</span><span>a</span><span>y</span><span>s</span> color</h1>
+      <button type="button" class="btn-sound btn-sound-off" aria-label="Enable sound">
+        <svg width="24" height="24" aria-hidden="true">
+          <path d="M6 7l8-5v20l-8-5v-10zm-6 10h4v-10h-4v10zm20.264-13.264l-1.497 1.497c1.847 1.783 2.983 4.157 2.983 6.767 0 2.61-1.135 4.984-2.983 6.766l1.498 1.498c2.305-2.153 3.735-5.055 3.735-8.264s-1.43-6.11-3.736-8.264zm-.489 8.264c0-2.084-.915-3.967-2.384-5.391l-1.503 1.503c1.011 1.049 1.637 2.401 1.637 3.888 0 1.488-.623 2.841-1.634 3.891l1.503 1.503c1.468-1.424 2.381-3.309 2.381-5.394z" />
+        </svg>
+      </button>
+    </div>
+    
+    <div class="header_top">
       <div class="level">
         <h2>Level</h2>
         <p id="level">1</p>
@@ -53,48 +79,63 @@
         <p id="points">0</p>
       </div>
     </div>
-
-    <section class="sound">
-      <audio id="sound_lose" src="./sound/fail_champions.mp3"></audio>
-      <audio id="sound_win" src="./sound/win_champions.mp3"></audio>
-    </section>
-
-    <div class="gameboard">
-      <div id="blue" class="sky blue color left" data-color="blue"></div>
-      <div id="violet" class="violet color right" data-color="violet"></div>
-      <div id="orange" class="orange color left" data-color="orange"></div>
-      <div id="green" class="green color right" data-color="green"></div>
-      <button id="btnPlay" class="btn" onclick="startGame()">Play!</button>
+    
+    <div class="gameboard" id="gameboard">
+      <div class="circle">
+        <div id="blue" class="sky blue color left" data-color="blue"></div>
+        <div id="violet" class="violet color right" data-color="violet"></div>
+        <div id="orange" class="orange color left" data-color="orange"></div>
+        <div id="green" class="green color right" data-color="green"></div>
+      </div>
+      <button id="btnPlay" class="btn_play" onclick="startGame()"></button>
     </div>
-  </div>
+    <!-- <div class="pallet">
+      <div class="circle">
+        <div>
+          <div id="blue" class="sky blue color circle12" data-color="blue"></div>
+          <div id="orange" class="orange color circle13" data-color="orange"></div>
+        </div>
+        <div>
+          <div id="violet" class="violet color circle10" data-color="violet"></div>
+          <div id="green" class="green color circle11" data-color="green"></div>
+        </div>
+      </div>
+      <button id="btnPlay" class="btn_play" onclick="startGame()"></button>
+    </div> -->
 
-  <footer>
-    <p>Copyright 2021 <strong style="color:rgb(22, 23, 26)">Bruno Maldonado</strong>. All rights reserved.</p>
+    <div class="show_modal">
+      <img class="overlay" src="./assets/gif/6ob.gif" alt="">
+      <img class="wrapper" src="./assets/gif/6ob.gif" alt="">
+      <div class="modal_container">
+        <span class="close_modal" id="close_modal">
+          <svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </span>
+        <div class="modal_body">
+          <!-- <div class="header_top">
+            <div class="level">
+              <h2>Level</h2>
+              <p id="level">10</p>
+            </div>
+            <div class="level">
+              <h2>Points</h2>
+              <p id="points">17</p>
+            </div>
+          </div>
+          <h1>Congratulations. Simon says, You won champion.</h1>
+          <img src="./assets/gif/6ob.gif" alt="">
+          <img src="./assets/gif/6ob.gif" alt=""> -->
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <p> Copyright © 2021 Bruno Maldonado. All rights reserved.</p>
   </footer>
 
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</div>
+  <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script> -->
   <script src="./app.js"></script>
-
-  <!-- <script>
-    function changeBg() {
-
-      const images = [
-        'url("../image/1.jpg")',
-        'url("../image/2.jpg")',
-        'url("../image/3.jpg")',
-        'url("../image/4.jpg")',
-        'url("../image/5.jpg")',
-        'url("../image/6.jpg")',
-        'url("../image/7.jpg")',
-      ]
-
-      const body = document.querySelector('body')
-      const bg = images[Math.floor(Math.random() * images.length)];
-      body.style.backgroundImage = bg;
-    }
-    setInterval(changeBg, 5000);
-  </script> -->
-
 </body>
-
 </html>
