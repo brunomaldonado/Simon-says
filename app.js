@@ -40,9 +40,12 @@ const LAST_LEVEL = 7;
 const show_modal = document.querySelector(".show_modal")
 const modal_container = document.querySelector(".modal_container")
 const modal_body = document.querySelector(".modal_body")
-const close_modal = document.getElementsByClassName(".close_modal")
+const close_modal = document.getElementById("close_modal")
 const btnSound = document.querySelector(".grid-btn .btn-sound");
 const audio = document.querySelector("audio");
+const overlay_image = document.getElementById("overlay_image")
+const wrapper_image = document.getElementById("wrapper_image")
+// const back_img1 = document.getElementById("back_image1")
 
 let sound = false;
 let timer;
@@ -260,6 +263,7 @@ class Play{
           this.win();
           this.increaseLevel(1);
           console.log("You WON")
+
         }else{ //y si no es el ultimo nivel tiene que avanzar el siguiente nivel
           setTimeout(() => {this.nextLevel()}, 1500);
           // setTimeout(this.nextLevel, 1500) // no estamos invocando la funcion lo estamos llamando
@@ -276,13 +280,13 @@ class Play{
       }
     } 
   }
+
   //Alert you Won
   win(){
-    // console.log("WIINNNNNN")
-    // this.initialize()
-    document.querySelector(".show_modal img").style.display = 'block';
-    document.querySelector(".show_modal .wrapper").style.display = 'block';
     // this.generateSounds('win')
+    overlay_image.style.display = 'block';
+    wrapper_image.style.display = 'block';
+
     show_modal.style.display = 'block';
     modal_container.style.display = 'block';
     modal_body.style.display = 'visible';
@@ -301,38 +305,47 @@ class Play{
       <img id="winner" class="winner" src="./assets/gif/6ob.gif" alt="winner">
       <img id="winner" class="winner" src="./assets/gif/6ob.gif" alt="winner">
   `;
-
-  document.getElementById("close_modal").addEventListener("click", () => {
-    this.deleteClickEvent();
-    this.initialize();
-    this.increaseLevel(1);
-    this.increaseNumberPoints(1);
-    console.log("close")
-    show_modal.style.display = 'none';
-    btnPlay.classList.remove('hide');
-    levels.length = 0;
-    ratings.length = 0;
-  });
-    // Swal.fire({
-    //   title: 'Simon says champions',
-    //   html: '<b class="won">You WON</b>',
-    //   icon: 'success',
-    //   backdrop: true,
-    //   buttonsStyling: true,
-    //   showConfirmButton: false,
-    //   // timer: 2500,
-    //   // timerProgressBar: true,
-    // })
-    //   .then(() => {this.initialize()})
-    //   .then(this.generateSounds('win'))
+    close_modal.addEventListener("click", event => {
+      console.log("click button closes");
+      this.deleteClickEvent();
+      this.initialize();
+      this.increaseLevel(1);
+      this.increaseNumberPoints(1);
+      show_modal.style.display = 'none';
+      btnPlay.classList.remove('hide');
+      levels.length = 0;
+      ratings.length = 0;
+      if (event.target.className == 'show_modal') {
+        this.removeModal();
+      }
+    });
+    show_modal.addEventListener('click', event => {
+      if (event.target.className === 'show_modal') {
+        this.removeModal();
+      };
+    });
+    // close_modal.addEventListener("click", () => {
+    //   console.log("click button closes");
+    //   this.deleteClickEvent();
+    //   this.initialize();
+    //   this.increaseLevel(1);
+    //   this.increaseNumberPoints(1);
+    //   show_modal.style.display = 'none';
+    //   btnPlay.classList.remove('hide');
+    //   levels.length = 0;
+    //   ratings.length = 0;
+    // });
+    // show_modal.addEventListener('click', event => {
+    //   if (event.target.className === 'show_modal') {
+    //     this.removeModal();
+    //   };
+    // });
   }
 //Alert you lost
   lose(){
     // this.generateSounds('lose')
-    // console.log("level=====>", levels.length)
-    // console.log("ratings====>", ratings.length)
-    document.querySelector(".show_modal img").style.display = 'none';
-    document.querySelector(".show_modal .wrapper").style.display = 'none';
+    overlay_image.style.display = 'none';
+    wrapper_image.style.display = 'none';
 
     show_modal.style.display = 'block';
     modal_container.style.display = 'block';
@@ -352,35 +365,25 @@ class Play{
       <img id="loser" class="loser" src="./assets/gif/DE4.gif" alt="loser">
   `;
 
-  document.getElementById("close_modal").addEventListener("click", () => {
-    this.increaseLevel(1);
-    this.increaseNumberPoints(1);
-    this.deleteClickEvent();
-    this.initialize();
-    console.log("close")
-    show_modal.style.display = 'none';
-    btnPlay.classList.remove('hide');
-    levels.length = 0;
-    ratings.length = 0;
-  });
-    
-    // this.generateSounds('lose')
-    // this.deleteClickEvent();
-    // this.initialize();
-    // console.log("LOSEEEEEEER")
-    // Swal.fire({
-    //   title: 'Simon says champions',
-    //   html: '<b class="lost">You LOST</b>',
-    //   icon: 'error',
-    //   backdrop: true,
-    //   showConfirmButton: false,
-    //   // timer: 2500,
-    //   // timerProgressBar: true,
-    // })
-    //   .then(() => {
-    //     this.deleteClickEvent();
-    //     this.initialize();
-    //   })
+    close_modal.addEventListener("click", event => {
+      console.log("click button closes");
+      this.deleteClickEvent();
+      this.initialize();
+      this.increaseLevel(1);
+      this.increaseNumberPoints(1);
+      show_modal.style.display = 'none';
+      btnPlay.classList.remove('hide');
+      levels.length = 0;
+      ratings.length = 0;
+      if (event.target.className == 'show_modal') {
+        this.removeModal();
+      }
+    });
+    show_modal.addEventListener('click', event => {
+      if (event.target.className === 'show_modal') {
+        this.removeModal();
+      };
+    });
   }
 
   increaseNumberPoints(reboot){
@@ -401,6 +404,29 @@ class Play{
     levels.push(number);
   }
 
+  removeModal() {
+    show_modal.style.display = 'none';
+    console.log("remove modal")
+    this.increaseLevel(1);
+    this.increaseNumberPoints(1);
+    this.deleteClickEvent();
+    this.initialize();
+    levels.length = 0;
+    ratings.length = 0;
+    btnPlay.classList.remove('hide');
+    // const modal = document.querySelector(".show_modal");
+    // if (modal) {
+    //   modal.remove()
+    //   console.log("remove modal")
+    //   this.increaseLevel(1);
+    //   this.increaseNumberPoints(1);
+    //   this.deleteClickEvent();
+    //   this.initialize();
+    //   levels.length = 0;
+    //   ratings.length = 0;
+    //   btnPlay.classList.remove('hide');
+    // }
+  }
 }
 
 btnSound.addEventListener("click", function () {
