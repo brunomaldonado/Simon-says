@@ -125,9 +125,10 @@ header{
 }
 
 .created h1{
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: #fff;
-  font-family: 'Love Ya Like A Sister', cursive;
+  font-family: "rainy";
+  /* font-family: 'Love Ya Like A Sister', cursive; */
 }
 
 .time-date h3{
@@ -490,9 +491,6 @@ header{
 .light.hide-bg, .light.hide-bg, .light.hide-bg, .light.hide-bg {
   background-image: none;
 }
-.light.show-bg, .light.show-bg, .light.show-bg, .light.show-bg {
-  background-image: inline;
-}
 
 .hide{
   display: none;
@@ -593,7 +591,7 @@ header{
   transition: all 0.3s ease;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.959);
+  background-color: rgba(0, 0, 0, 0.919);
   z-index: 200;
   display: none;
   position: fixed;
@@ -601,6 +599,7 @@ header{
   right: 0;
   left: 0;
   bottom: 0;
+  
 }
 
 .show_modal .overlay {
@@ -611,9 +610,9 @@ header{
 }
 .show_modal .wrapper {
   position: absolute;
-  left: 250px;
-  top: 90px;
-  display: none;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .modal_container {
@@ -625,6 +624,9 @@ header{
   transform: translate(-50%, -50%); 
   transition: all 0.3s ease;
   transition: transform 1s;
+  border-radius: 20px;
+  perspective: 375px;
+  
 }
 
 .modal_body {
@@ -634,16 +636,31 @@ header{
   padding: 1.5rem;
   background-color: rgba(255, 255, 255, .9799);
   isolation: isolate;
+
+  border-radius: 8px;
+  box-shadow: inset 0px 0px 25px 3px rgba(255, 255, 255, 0.45), 0px 0px 25px 10px rgba(255, 255, 255, 0.35);
+
+
   /* background-image: url(../img/hum/03.png); */
   /* background-size: contain;
   background-repeat: no-repeat;
   background-position: center; */
   /* position: relative; */
+  transition: all 0.3s ease;
+  /* transition: transform 1s; */
+  transform-style: preserve-3d;
+  transform: rotateY(8deg);
+  transition: 0.3s ease-in-out;
 
 }
+/* .modal_body:hover {
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+  transition: 0.3s ease-in-out;
+} */
 
 .modal_body .title_modal {
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
 .modal_body::after {
@@ -660,10 +677,25 @@ header{
   border-radius: 8px;
 }
 
+.footer_modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+}
+.modal_body a {
+  text-decoration: none;
+  font-size: 1.3rem;
+  margin-left: 6px;
+  color: #9aa0a6; 
+}
+
 .close_modal{
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: 16px;
+  right: 16px;
   color: #9aa0a6;
   background-color: rgba(112, 117, 126, 0.25);
   outline: none;
@@ -673,6 +705,9 @@ header{
   border-radius: 50%;
   cursor: pointer;
   z-index: 100;
+  transform-style: preserve-3d;
+  transform: rotateY(8deg);
+  transition: 0.3s ease-in-out;
 }
 
  .header_top h2::first-letter {
@@ -708,20 +743,37 @@ header{
   line-height: 1;
   z-index: 20;
 }
+.modal_body .title_modal {
+  font-size: 3.8rem;
+}
 
 .modal_body img {
   position: relative;
-  bottom: 9.5rem;
+  bottom: 15.5rem;
+  transform-style: preserve-3d;
+  transform: rotateY(8deg);
+  transition: 0.3s ease-in-out;
 }
 
 .modal_body .loser {
   position: absolute;
-  top: 35%;
-  left: 50%;
+  top: -10%;
+  left: 3%;
+  /* top: 35%;
+  left: 50%; */
   transform: translate(-50%, -50%);
   width: 300px;
   z-index: -1;
+  transform-style: preserve-3d;
+  transform: rotateY(8deg);
+  transition: 0.3s ease-in-out;
 }
+
+/* .modal_body .loser {
+  transform-style: preserve-3d;
+  transform: rotateY(8deg);
+  transition: 0.3s ease-in-out;
+} */
 
 .footer{
   text-align: center;
@@ -742,6 +794,27 @@ header{
     left: 50%;
     transform: translate(-50%, -50%); 
   }
+  .modal_body h1 {
+    font-size: 3rem;
+    position: relative;
+    bottom: 26px;
+    /* color: red; */
+  }
+  .modal_body .title_modal {
+    font-size: 3.5rem;
+  }
+  .modal_body .loser {
+    position: absolute;
+    top: -12%;
+    left: 0%;
+    transform: translate(-50%, -50%);
+    width: 270px;
+    z-index: -1;
+    transform-style: preserve-3d;
+    transform: rotateY(8deg);
+    transition: 0.3s ease-in-out;
+  }
+
   .grid {
     margin: 18px 0px 8px 0px;
   }
@@ -766,7 +839,6 @@ header{
     overflow: hidden;
     position: relative;
   }
- 
   .footer{
     position: absolute;
     bottom: 1.5rem;
@@ -828,12 +900,23 @@ header{
     left: -31%;
     background: rgba(198, 16, 0, 0);
   }
+  /* .modal_body .loser {
+    position: absolute;
+    top: -8%;
+    left: 6%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    z-index: -1;
+    transform-style: preserve-3d;
+    transform: rotateY(8deg);
+    transition: 0.3s ease-in-out;
+  } */
 
 }
 
 @media (min-width: 768px) {
   .created h1 {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     letter-spacing: 1.2px;
   }
   .grid .title{
@@ -863,12 +946,6 @@ header{
     position: relative;
     /* bottom: 0.5rem; */
   }
-  .show_modal .wrapper {
-    position: absolute;
-    left: 280px;
-    top: 220px;
-    display: block;
-  }
 
   .modal_container {
     min-width: 420px;
@@ -891,6 +968,27 @@ header{
     z-index: 20;
     letter-spacing: 1.2px;
   }
+  .modal_body .title_modal {
+    font-size: 4.8rem;
+  }
+  .modal_body .loser {
+    position: absolute;
+    top: -8%;
+    left: 6%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    z-index: -1;
+    transform-style: preserve-3d;
+    transform: rotateY(8deg);
+    transition: 0.3s ease-in-out;
+  }
+  .close_modal{
+    position: absolute;
+    top: 20px;
+    right: 22px;
+    width: 26px;
+    height: 26px;
+  }
   .gameboard {
     height: 350px;
     width: 350px;
@@ -912,23 +1010,10 @@ header{
     margin: 1.5rem auto;
   }
 
-  .show_modal .wrapper {
-    position: absolute;
-    left: 460px;
-  }
-
 }
 
 
 @media (min-width: 1200px) {
-  /* .header_top {
-    margin-bottom: 33px;
-  } */
-  .show_modal .wrapper {
-    /* border: 2px solid red; */
-    display: none;
-    visibility: hidden;
-  }
   .modal_container .header_top {
     width: 100%;
   }
