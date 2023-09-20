@@ -36,7 +36,7 @@ const green = document.getElementById('green');
 const btnPlay= document.getElementById('btnPlay');
 const sound_lose = document.getElementById('sound_lose');
 const sound_win = document.getElementById('sound_win');
-const LAST_LEVEL = 3;
+const LAST_LEVEL = 7;
 const show_modal = document.querySelector(".show_modal")
 const modal_container = document.querySelector(".modal_container")
 const modal_body = document.querySelector(".modal_body")
@@ -75,7 +75,7 @@ class Play{
     //toggle significa despues de un switch o interruptor 
     this.toggleBtnStart();
     // btnPlay.classList.toggle('hide');
-    console.log("========> start to play <=======");
+    // console.log("========> start to play <=======");
     this.level = 1;
     
     this.sounds = {
@@ -181,7 +181,7 @@ class Play{
     for (let i = 0; i < this.level ; i++) {
       const color = this.transformNumberToColor(this.sequence[i]);
       // document.querySelector(".light").classList.add('show-bg');
-      console.log("color iluminate", color)
+      // console.log("color iluminate", color)
      
       // LLamar la funcion para que ilumine ese color 
       // setTimeout(() =>this.generateSoundsColor(color), 1000 * i);
@@ -204,13 +204,13 @@ class Play{
   iluminateColor(color){
     this.colors[color].classList.add('light')
     setTimeout(() => this.turnOffColor(color) , 350);
-    console.log("show background image")
+    // console.log("show background image")
     const className = document.getElementsByClassName("light")
     for (let index = 0; index < className.length; index++) {
       const element = className[index];
       element.classList.remove('hide-bg')
       // document.querySelector(".light").classList.add('hide-bg');
-      console.log("element", element.classList.remove('hide-bg'))
+      // console.log("element", element.classList.remove('hide-bg'))
     }
   }
 
@@ -236,7 +236,7 @@ class Play{
     this.colors.green.removeEventListener('click', this.chooseColor)
   } // Cuando el usuario pase de nivel, se van a volve agregar los eventos del clic
 
-  //Cuando manejamos los agragadores o escuchadores de eventos se usa un Metodo llamado 'ev'
+  //Cuando manejamos los escuchadores de eventos se usa un Metodo llamado 'ev'
   chooseColor(ev){
    //console.log(this) // el this sigue siendo el mismo nuevo objeto play
     // console.log(ev);
@@ -246,7 +246,7 @@ class Play{
     const colorNumber = this.transformColorToNumber(colorName)
     this.iluminateColor(colorName);
     document.querySelector(".light").classList.add('hide-bg');
-    console.log("color click", colorNumber)
+    // console.log("color click", colorNumber)
 
     if (colorNumber === this.sequence[this.subLevel]) {
       // document.querySelector(".light").classList.remove('hide-bg');
@@ -262,7 +262,7 @@ class Play{
         if (this.level === (LAST_LEVEL + 1)) {
           this.win();
           this.increaseLevel(1);
-          console.log("You WON")
+          // console.log("You WON")
 
         }else{ //y si no es el ultimo nivel tiene que avanzar el siguiente nivel
           setTimeout(() => {this.nextLevel()}, 1500);
@@ -273,7 +273,7 @@ class Play{
       this.lose();
       // this.increaseLevel(1);
       // this.increaseNumberPoints(1);
-      console.log("You LOSE")
+      // console.log("You LOSE")
       if (sound) {
         audio.pause();
         audio.currentTime = 0;
@@ -283,9 +283,11 @@ class Play{
 
   //Alert you Won
   win(){
-    // this.generateSounds('win')
+    this.generateSounds('win')
     overlay_image.style.display = 'block';
-    wrapper_image.style.display = 'block';
+    setTimeout(() => {
+      wrapper_image.style.display = 'block';
+    }, 2500);
 
     show_modal.style.display = 'block';
     modal_container.style.display = 'block';
@@ -347,7 +349,7 @@ class Play{
   }
 //Alert you lost
   lose(){
-    // this.generateSounds('lose')
+    this.generateSounds('lose')
     overlay_image.style.display = 'none';
     wrapper_image.style.display = 'none';
 

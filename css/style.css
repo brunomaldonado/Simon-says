@@ -599,7 +599,8 @@ header{
   right: 0;
   left: 0;
   bottom: 0;
-  
+  perspective: 375px;
+
 }
 
 .show_modal .overlay {
@@ -607,12 +608,25 @@ header{
   left: 0;
   right: 0;
   margin: 0 auto;
+  transition: all 0.3s ease;
+  /* transition: transform 1s; */
+  transform-style: preserve-3d;
+  transform: rotateY(8deg);
+  transition: 0.3s ease-in-out;
 }
 .show_modal .wrapper {
   position: absolute;
-  top: 30%;
+  top: 20%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  /* top: 30%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+  transform: rotateY(8deg);
+  transition: 0.3s ease-in-out;
 }
 
 .modal_container {
@@ -782,7 +796,7 @@ header{
   font-size: 1.4rem;
   line-height: 1.2;
   padding: 8px;
-  font-weight: 700;
+  /* font-weight: 700; */
 }
 
 @media (max-width: 360px) {
