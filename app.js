@@ -295,11 +295,11 @@ class Play{
     modal_body.innerHTML = `
       <div class="header_top">
         <div class="level">
-          <h2>Level</h2>
+          <h2>L<span>evel</span></h2>
           <p>${levels.length + 1}</p>
         </div>
         <div class="level">
-          <h2>Points</h2>
+          <h2>P<span>oints</span></h2>
           <p>${ratings.length}</p>
         </div>
       </div>
@@ -359,11 +359,11 @@ class Play{
     modal_body.innerHTML = `
       <div class="header_top">
         <div class="level">
-          <h2>Level</h2>
+          <h2>L<span>evel</span></h2>
           <p>${levels.length + 1}</p>
         </div>
         <div class="level">
-          <h2>Points</h2>
+          <h2>P<span>oints</span></h2>
           <p>${ratings.length}</p>
         </div>
       </div>

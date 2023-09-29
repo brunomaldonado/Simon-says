@@ -132,6 +132,8 @@ header{
 }
 
 .time-date h3{
+  display: flex;
+  justify-content: flex-end;
   font-family: "DS-Digital";
   color: #fff;
   font-size: 2.1rem;
@@ -233,9 +235,9 @@ header{
   z-index: 1;
 }
 
-.level h2{
+/* .level h2{
   font-size: 1.3rem;
-}
+} */
 
 .level p{
   font-size: 1.4rem;
@@ -704,6 +706,8 @@ header{
   font-size: 1.3rem;
   margin-left: 6px;
   color: #9aa0a6; 
+  font-family: 'poppins';
+  color: #515253;
 }
 
 .close_modal{
@@ -726,29 +730,41 @@ header{
 
  .header_top h2::first-letter {
   font-family: "american";
-  font-size: 4rem;
+  font-size: 4.4rem;
+  color: #515253;
 }
 
  .header_top h2{
-  /* font-family: "monk"; */
   font-family: "american";
   font-size: 3rem;
   font-weight: lighter;
   letter-spacing: 1.5px;
 }
 
+.header_top span{
+  font-family: "american";
+  font-size: 3.8rem;
+  font-weight: lighter;
+  letter-spacing: 1.5px;
+  vertical-align: top;
+  border-bottom: 1px solid #9aa0a6;
+  color: #49494a;
+
+}
+
 .header_top p{
   font-family: "rainy";
   font-size: 3.8rem;
   font-weight: lighter;
+  color: #48494a;
 }
 
-.modal_body h1::first-letter {
+/* .modal_body h1::first-letter {
   font-family: "american";
   font-size: 6rem;
   text-transform: uppercase;
-}
-.modal_body h1 {
+} */
+/* .modal_body h1 {
   font-family: "american";
   font-size: 3.8rem;
   text-transform: lowercase;
@@ -756,7 +772,7 @@ header{
   font-weight: lighter;
   line-height: 1;
   z-index: 20;
-}
+} */
 .modal_body .title_modal {
   font-size: 3.8rem;
 }
@@ -941,24 +957,20 @@ header{
     margin: 1.5rem 0 1.5rem 0;
   }
   .modal_body .header_top{
-    margin-bottom: 0rem;
+    /* margin-bottom: 0rem; */
   }
   .header_top h2::first-letter {
-    font-family: "american";
-    font-size: 4.8rem;
+    font-size: 4.6rem;
   }
   
-   .header_top h2{
+   .header_top span{
     font-size: 4rem;
-    letter-spacing: 1.5px;
+    /* vertical-align: top; */
   }
   
   .header_top p{
     font-family: "rainy";
     font-size: 4.3rem;
-    font-weight: lighter;
-    position: relative;
-    /* bottom: 0.5rem; */
   }
 
   .modal_container {
