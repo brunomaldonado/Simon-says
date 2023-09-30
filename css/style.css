@@ -710,6 +710,13 @@ header{
   color: #515253;
 }
 
+.modal_body .header_top div:nth-child(2) {
+  transform-style: preserve-3d;
+  transform: rotateY(8deg);
+  /* transition: 0.3s ease-in-out; */
+  /* border: 0.5px solid white; */
+}
+
 .close_modal{
   position: absolute;
   top: 16px;
@@ -728,28 +735,50 @@ header{
   transition: 0.3s ease-in-out;
 }
 
- .header_top h2::first-letter {
-  font-family: "american";
-  font-size: 4.4rem;
-  color: #515253;
+.header_top {
+  /* transform-style: preserve-3d; */
+  perspective: 100px;
+
+}
+.header_top div:nth-child(1) {
+  transform-style: preserve-3d;
+  transform: rotateY(8deg);
+  transition: 0.3s ease-in-out;
+  /* border: 0.5px solid white; */
+}
+.header_top div:nth-child(2) {
+  transform-style: preserve-3d;
+  transform: rotateY(-8deg);
+  transition: 0.3s ease-in-out;
+  /* border: 0.5px solid white; */
 }
 
- .header_top h2{
+ .header_top h2::first-letter {
+  font-family: "american";
+  font-size: 3.6rem;
+  color: #515253;
+
+  font-weight: 100;
+
+}
+
+ /* .header_top h2{
   font-family: "american";
   font-size: 3rem;
   font-weight: lighter;
   letter-spacing: 1.5px;
-}
+} */
 
 .header_top span{
-  font-family: "american";
-  font-size: 3.8rem;
-  font-weight: lighter;
+  font-family: "euro";
+  font-size: 3.6rem;
+  /* font-weight: lighter; */
   letter-spacing: 1.5px;
   vertical-align: top;
-  border-bottom: 1px solid #9aa0a6;
+  border-bottom: 1px solid #626364;
   color: #49494a;
-
+  font-weight: 100;
+  margin-left: 3px;
 }
 
 .header_top p{
@@ -759,7 +788,10 @@ header{
   color: #48494a;
 }
 
-/* .modal_body h1::first-letter {
+/*
+10707231
+
+.modal_body h1::first-letter {
   font-family: "american";
   font-size: 6rem;
   text-transform: uppercase;
@@ -812,7 +844,7 @@ header{
   font-size: 1.4rem;
   line-height: 1.2;
   padding: 8px;
-  /* font-weight: 700; */
+  font-weight: 700;
 }
 
 @media (max-width: 360px) {
@@ -892,6 +924,12 @@ header{
     overflow: hidden;
   }
 
+  .header_top {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    /* border: 1px solid red; */
+  }
+
   .modal_body {
     display: flex;
     flex-direction: column;
@@ -952,20 +990,16 @@ header{
   .grid .title{
     text-align: center;
     font-size: 3.6rem;
-    /* font-family: "american"; */
     letter-spacing: 1.2px;
     margin: 1.5rem 0 1.5rem 0;
   }
-  .modal_body .header_top{
-    /* margin-bottom: 0rem; */
-  }
+
   .header_top h2::first-letter {
-    font-size: 4.6rem;
+    font-size: 4.2rem;
   }
   
    .header_top span{
     font-size: 4rem;
-    /* vertical-align: top; */
   }
   
   .header_top p{
@@ -1049,8 +1083,16 @@ header{
   .cont{
     width: 50%;
   }
-  .header_top {
+  /* .header_top {
     width: 80%;
+  } */
+}
+@media (min-width: 1760px) {
+  .cont{
+    width: 50%;
+  }
+  .header_top {
+    width: 90%;
   }
 }
 

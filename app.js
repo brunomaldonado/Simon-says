@@ -85,7 +85,7 @@ class Play{
       green: new Audio('https://s3.amazonaws.com/freecodecamp/simonSound4.mp3'),
     }
 
-    this.sounndsLoseWin = {
+    this.soundsWinLose = {
       sound_lose, sound_win
     }
 
@@ -106,13 +106,13 @@ class Play{
     }
   }
 
-  generateSounds(color){
+  generateSoundsWinLose(color){
     switch (color) {
       case 'lose':
-        this.sounndsLoseWin.sound_lose.play();
+        this.soundsWinLose.sound_lose.play();
         break;
       case 'win':
-        this.sounndsLoseWin.sound_win.play();
+        this.soundsWinLose.sound_win.play();
         break;
     }
   }
@@ -263,7 +263,6 @@ class Play{
           this.win();
           this.increaseLevel(1);
           // console.log("You WON")
-
         }else{ //y si no es el ultimo nivel tiene que avanzar el siguiente nivel
           setTimeout(() => {this.nextLevel()}, 1500);
           // setTimeout(this.nextLevel, 1500) // no estamos invocando la funcion lo estamos llamando
@@ -274,16 +273,20 @@ class Play{
       // this.increaseLevel(1);
       // this.increaseNumberPoints(1);
       // console.log("You LOSE")
-      if (sound) {
-        audio.pause();
-        audio.currentTime = 0;
-      }
+      // if (sound) {
+      //   audio.pause();
+      //   audio.currentTime = 0;
+      // }
     } 
   }
 
   //Alert you Won
   win(){
-    this.generateSounds('win')
+    if (sound) {
+      audio.pause();
+      audio.currentTime = 0;
+      this.generateSoundsWinLose('win')
+    }
     overlay_image.style.display = 'block';
     setTimeout(() => {
       wrapper_image.style.display = 'block';
@@ -349,7 +352,11 @@ class Play{
   }
 //Alert you lost
   lose(){
-    this.generateSounds('lose')
+    if (sound) {
+        audio.pause();
+        audio.currentTime = 0;
+        this.generateSoundsWinLose('lose')
+      }
     overlay_image.style.display = 'none';
     wrapper_image.style.display = 'none';
 
@@ -441,6 +448,7 @@ class Play{
 
 btnSound.addEventListener("click", function () {
   sound = !sound;
+  console.log("sound", sound)
   const ariaLabel =
     this.getAttribute("aria-label") == "Enable sound"
       ? "Disable sound"
