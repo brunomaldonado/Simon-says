@@ -788,15 +788,13 @@ header{
   color: #48494a;
 }
 
-/*
-10707231
 
 .modal_body h1::first-letter {
   font-family: "american";
   font-size: 6rem;
   text-transform: uppercase;
-} */
-/* .modal_body h1 {
+}
+.modal_body h1 {
   font-family: "american";
   font-size: 3.8rem;
   text-transform: lowercase;
@@ -804,9 +802,11 @@ header{
   font-weight: lighter;
   line-height: 1;
   z-index: 20;
-} */
+}
+
 .modal_body .title_modal {
   font-size: 3.8rem;
+  
 }
 
 .modal_body img {
@@ -835,6 +835,7 @@ header{
   transform-style: preserve-3d;
   transform: rotateY(8deg);
   transition: 0.3s ease-in-out;
+
 } */
 
 .footer{
