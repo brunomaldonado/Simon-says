@@ -96,6 +96,10 @@ body::after {
   font-family: "ech";
   src: url("../fonts/Uechi_Gothic/Uechi_Gothic.ttf") format('truetype');
 }
+@font-face {
+  font-family: "rough";
+  src: url("../fonts/Rough.otf") format('truetype');
+}
 
 .cont {
   width: 100%;
@@ -738,6 +742,7 @@ header{
 .header_top {
   /* transform-style: preserve-3d; */
   perspective: 100px;
+  /* border: 1px solid green; */
 
 }
 .header_top div:nth-child(1) {
@@ -754,31 +759,84 @@ header{
 }
 
  .header_top h2::first-letter {
+  /* font-family: "rough"; */
   font-family: "american";
-  font-size: 3.6rem;
+  /* font-family: "old"; */
+  /* font-size: 3.6rem; */
+  /* font-size: 3rem; */
+  font-size: 2.8rem;
   color: #515253;
-
   font-weight: 100;
-
+  position: relative;
 }
 
- /* .header_top h2{
-  font-family: "american";
+.header_top div:nth-child(2) h2::first-letter{
+  font-family: 'euro';
+  font-weight: 100;
   font-size: 3rem;
-  font-weight: lighter;
-  letter-spacing: 1.5px;
-} */
+}
+
+.modal_body .header_top div:nth-child(2) h2::first-letter{
+  /* font-family: 'rough'; */
+  font-family: 'american';
+  font-weight: 100;
+  font-size: 3rem;
+  margin-right: 3px;
+}
+
+
+.header_top div:nth-child(1) span{
+  position: relative;
+  bottom: 0.3rem;
+  margin-left: 3px;
+
+}
+.header_top div:nth-child(2) h2{
+  position: relative;
+  top: 0.3rem;
+  right: 1.5rem;
+}
+.header_top div:nth-child(2) span{
+  position: relative;
+  bottom: 0.3rem;
+}
+
+.header_top div:nth-child(2) span::after{
+  bottom: -1px;
+  content: 's';
+  position: absolute;
+  top: 7px;
+  right: -17px;
+  transform: translate(-100%, 1);
+  font-family: "rough";
+  font-size: 2.6rem;
+  color: #515253;
+  text-transform: uppercase;
+  font-weight: 100;
+  border-bottom: 1px solid #626364;
+}
+
+.modal_body .header_top div:nth-child(2) span::after{
+  font-family: "euro";
+  content: 's';
+  position: absolute;
+  top: 7px;
+  right: -18px;
+  transform: translate(-100%, 1);
+  font-size: 2.4rem;
+}
 
 .header_top span{
   font-family: "euro";
-  font-size: 3.6rem;
+  /* font-size: 3.6rem; */
+  font-size: 3rem;
   /* font-weight: lighter; */
-  letter-spacing: 1.5px;
+  letter-spacing: 1.2px;
   vertical-align: top;
   border-bottom: 1px solid #626364;
   color: #49494a;
   font-weight: 100;
-  margin-left: 3px;
+  /* margin-left: 3px; */
 }
 
 .header_top p{
@@ -786,6 +844,7 @@ header{
   font-size: 3.8rem;
   font-weight: lighter;
   color: #48494a;
+  margin-top: 1rem;
 }
 
 
@@ -796,12 +855,17 @@ header{
 }
 .modal_body h1 {
   font-family: "american";
-  font-size: 3.8rem;
+  font-size: 3.2rem;
+  font-family: "euro";
   text-transform: lowercase;
   word-wrap: break-word;
   font-weight: lighter;
-  line-height: 1;
+  position: relative;
+  bottom: 1.5rem;
   z-index: 20;
+  letter-spacing: 1.2px;
+  color: #49494a;
+  line-height: 0.85;
 }
 
 .modal_body .title_modal {
@@ -842,13 +906,14 @@ header{
   text-align: center;
 }
 .footer p{
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   line-height: 1.2;
   padding: 8px;
   font-weight: 700;
+  font-family: 'poppins';
 }
 
-@media (max-width: 360px) {
+@media (max-width: 280px) {
   .modal_container {
     width: 280px;
     height: 240px;
@@ -886,7 +951,7 @@ header{
   }
 }
 
-@media (min-width: 360px) {
+@media (min-width: 280px) {
   .grid .title{
     /* color: red; */
     /* margin-top: 13px; */
@@ -894,6 +959,31 @@ header{
     /* margin-top: 30px; */
     /* margin-bottom: 13px; */
   }
+
+  .modal_body .header_top div:nth-child(2) h2::first-letter{
+    font-size: 3.4rem;
+  }
+  .modal_body .header_top div:nth-child(1) h2::first-letter{
+    font-size: 3.4rem;
+  }
+  .modal_body .header_top span {
+    
+    font-size: 3.4rem;
+  }
+  .modal_body .header_top div:nth-child(2) span::after{
+    font-family: "euro";
+    content: 's';
+    position: absolute;
+    top: 8px;
+    right: -20px;
+    transform: translate(-100%, 1);
+    font-size: 2.7rem;
+  }
+  .modal_body .header_top p {
+    font-size: 4rem;
+    margin: 0;
+  }
+ 
   .gameboard {
     height: 300px;
     width: 300px;
@@ -995,16 +1085,25 @@ header{
     margin: 1.5rem 0 1.5rem 0;
   }
 
-  .header_top h2::first-letter {
+  .modal_body .header_top div:nth-child(2) h2::first-letter{
     font-size: 4.2rem;
   }
-  
-   .header_top span{
-    font-size: 4rem;
+  .modal_body .header_top div:nth-child(1) h2::first-letter{
+    font-size: 4.2rem;
   }
-  
-  .header_top p{
-    font-family: "rainy";
+  .modal_body .header_top span {
+    font-size: 4.2rem;
+  }
+  .modal_body .header_top div:nth-child(2) span::after{
+    font-family: "euro";
+    content: 's';
+    position: absolute;
+    top: 9px;
+    right: -26px;
+    transform: translate(-100%, 1);
+    font-size: 3.4rem;
+  }
+  .modal_body .header_top p {
     font-size: 4.3rem;
   }
 
@@ -1016,22 +1115,25 @@ header{
     font-family: "american";
     font-size: 8rem;
     text-transform: uppercase;
+    color: #3d3e3f;
   }
   .modal_body h1 {
-    font-family: "american";
-    font-size: 4.8rem;
+    font-size: 4.2rem;
+    /* font-family: "euro";
     text-transform: lowercase;
     word-wrap: break-word;
     font-weight: lighter;
-    line-height: 1;
     position: relative;
-    bottom: 0;
+    bottom: 1.5rem;
     z-index: 20;
     letter-spacing: 1.2px;
+    color: #49494a;
+    line-height: 0.85; */
+    
   }
-  .modal_body .title_modal {
+  /* .modal_body .title_modal {
     font-size: 4.8rem;
-  }
+  } */
   .modal_body .loser {
     position: absolute;
     top: -8%;
@@ -1059,7 +1161,7 @@ header{
     width: 350px;
   }
   .footer p{
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     line-height: 1.2;
     padding: 8px;
   }

@@ -302,7 +302,7 @@ class Play{
           <p>${levels.length + 1}</p>
         </div>
         <div class="level">
-          <h2>P<span>oints</span></h2>
+          <h2>P<span>oint</span></h2>
           <p>${ratings.length}</p>
         </div>
       </div>
@@ -370,7 +370,7 @@ class Play{
           <p>${levels.length + 1}</p>
         </div>
         <div class="level">
-          <h2>P<span>oints</span></h2>
+          <h2>P<span>oint</span></h2>
           <p>${ratings.length}</p>
         </div>
       </div>

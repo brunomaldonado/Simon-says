@@ -8,7 +8,7 @@ Simon says is a game involving three or more people, where one of the participan
   <tr>
     <!-- <td valign="top"><img src="./assets/tablet.PNG" alt="tablet"></td> -->
     <!-- <td valign="top"><img src="./assets/simulator1.PNG" alt="tablet"></td> -->
-    <td valign="top"><img src="./assets/img/tablets.PNG" alt="tablet"></td>
+    <td valign="top"><img src="./assets/img/tablet.PNG" alt="tablet"></td>
     <td valign="top"><img src="./assets/img/mobile.PNG" alt="mobile"></td>
   </tr>
 </table>
