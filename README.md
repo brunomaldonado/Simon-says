@@ -4,8 +4,8 @@
 
 Simon says is a game involving three or more people, where one of the participants is "Simon" who directs the action. The others must do what Simon says. 
 
-<div style="display:flex; align-items: center; justify-content: center;">
-  <img src="./assets/img/tablet.PNG" style=""  width="52%" alt="tablet">
+<div align="center">
+  <img src="./assets/img/tablet.PNG"  valign="top"  width="52%" alt="tablet">
 &nbsp; &nbsp; &nbsp; &nbsp;
   <img src="./assets/img/mobile.PNG" width="40%"  alt="mobile">
 </div>
