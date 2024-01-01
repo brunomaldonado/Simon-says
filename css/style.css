@@ -81,8 +81,8 @@ body::after {
   src: url("../fonts/American/American-Text.ttf") format('truetype');
 }
 @font-face {
-  font-family: "vapor";
-  src: url("../fonts/typewriter/typewriter.ttf") format('truetype');
+  font-family: "matrix";
+  src: url("../fonts/matrix.ttf") format('truetype');
 }
 @font-face {
   font-family: "euro";
@@ -1231,14 +1231,17 @@ header{
   .modal_content h1 {
     text-align: center;
     font-size: x-large;
-    font-family: "euro";  
+    font-family: "euro";
     letter-spacing: 5px;
+    margin-bottom: 1rem;
   }
   
   .modal_content p {
-    font-size: 1.7rem; 
-    font-family: "vapor";
-    font-weight: 800;
+    font-size: 1.8rem; 
+    /* font-family: "vapor"; */
+    letter-spacing: 1.2px;
+    font-family: "matrix";  
+    font-weight: bold;
   }
 }
 
@@ -1327,8 +1330,10 @@ header{
   }
   
   .modal_content p {
-    font-size: 2.5rem; 
-    font-family: "vapor";
+    font-size: 2.8rem; 
+    font-family: "matrix";
+    font-weight: 800;
+    letter-spacing : 1.2px;
   }
 
 }
