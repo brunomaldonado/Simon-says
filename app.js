@@ -36,7 +36,7 @@ const green = document.getElementById('green');
 const btnPlay= document.getElementById('btnPlay');
 const sound_lose = document.getElementById('sound_lose');
 const sound_win = document.getElementById('sound_win');
-const LAST_LEVEL = 7;
+const LAST_LEVEL = 8;
 const show_modal = document.querySelector(".show_modal")
 const modal_container = document.querySelector(".modal_container")
 const modal_body = document.querySelector(".modal_body")
@@ -45,7 +45,14 @@ const btnSound = document.querySelector(".grid-btn .btn-sound");
 const audio = document.querySelector("audio");
 const overlay_image = document.getElementById("overlay_image")
 const wrapper_image = document.getElementById("wrapper_image")
+const about = document.getElementById('about')
+const modal_about = document.querySelector('.modal_about')
+const close_btn = document.querySelector('.close_btn')
 // const back_img1 = document.getElementById("back_image1")
+const modal_background = document.getElementById('modal_background')
+// const modalImages = ["./images/copy8.png","./images/10.png","./images/61.png","./images/5.png","./images/9.png","./images/12.png","./images/11.png","./images/1.png","./images/4.png"]
+const modalImages = ["./images/12.png","./images/61.png","./images/63.png","./images/5.png","./images/9.png","./images/12.png","./images/11.png","./images/62.png","./images/4.png"]
+let index = 0;
 
 let sound = false;
 let timer;
@@ -288,13 +295,12 @@ class Play{
       this.generateSoundsWinLose('win')
     }
     overlay_image.style.display = 'block';
-    setTimeout(() => {
-      wrapper_image.style.display = 'block';
-    }, 2500);
+    wrapper_image.style.display = 'block';
+    // setTimeout(() => {
+    // }, 2500);
 
-    show_modal.style.display = 'block';
-    modal_container.style.display = 'block';
-    modal_body.style.display = 'visible';
+    show_modal.classList.add('active')
+    show_modal.style.opacity = '1'
     modal_body.innerHTML = `
       <div class="header_top">
         <div class="level">
@@ -320,35 +326,18 @@ class Play{
       this.initialize();
       this.increaseLevel(1);
       this.increaseNumberPoints(1);
-      show_modal.style.display = 'none';
+      // show_modal.style.display = 'none';
+      show_modal.classList.remove('active')
+      show_modal.style.opacity = '0'
       btnPlay.classList.remove('hide');
       levels.length = 0;
       ratings.length = 0;
-      if (event.target.className == 'show_modal') {
-        this.removeModal();
-      }
     });
     show_modal.addEventListener('click', event => {
-      if (event.target.className === 'show_modal') {
+      if (event.target === show_modal) {
         this.removeModal();
       };
     });
-    // close_modal.addEventListener("click", () => {
-    //   console.log("click button closes");
-    //   this.deleteClickEvent();
-    //   this.initialize();
-    //   this.increaseLevel(1);
-    //   this.increaseNumberPoints(1);
-    //   show_modal.style.display = 'none';
-    //   btnPlay.classList.remove('hide');
-    //   levels.length = 0;
-    //   ratings.length = 0;
-    // });
-    // show_modal.addEventListener('click', event => {
-    //   if (event.target.className === 'show_modal') {
-    //     this.removeModal();
-    //   };
-    // });
   }
 //Alert you lost
   lose(){
@@ -359,10 +348,10 @@ class Play{
       }
     overlay_image.style.display = 'none';
     wrapper_image.style.display = 'none';
+    about.classList.remove('active')
 
-    show_modal.style.display = 'block';
-    modal_container.style.display = 'block';
-    modal_body.style.display = 'visible';
+    show_modal.classList.add('active')
+    show_modal.style.opacity = '1'
     modal_body.innerHTML = `
       <div class="header_top">
         <div class="level">
@@ -388,16 +377,15 @@ class Play{
       this.initialize();
       this.increaseLevel(1);
       this.increaseNumberPoints(1);
-      show_modal.style.display = 'none';
+      show_modal.classList.remove('active')
+      show_modal.style.opacity = '0'
+      // show_modal.style.display = 'none';
       btnPlay.classList.remove('hide');
       levels.length = 0;
       ratings.length = 0;
-      if (event.target.className == 'show_modal') {
-        this.removeModal();
-      }
     });
     show_modal.addEventListener('click', event => {
-      if (event.target.className === 'show_modal') {
+      if (event.target === show_modal) {
         this.removeModal();
       };
     });
@@ -422,7 +410,8 @@ class Play{
   }
 
   removeModal() {
-    show_modal.style.display = 'none';
+    show_modal.classList.remove('active')
+    show_modal.style.opacity = '0'
     console.log("remove modal")
     this.increaseLevel(1);
     this.increaseNumberPoints(1);
@@ -431,18 +420,6 @@ class Play{
     levels.length = 0;
     ratings.length = 0;
     btnPlay.classList.remove('hide');
-    // const modal = document.querySelector(".show_modal");
-    // if (modal) {
-    //   modal.remove()
-    //   console.log("remove modal")
-    //   this.increaseLevel(1);
-    //   this.increaseNumberPoints(1);
-    //   this.deleteClickEvent();
-    //   this.initialize();
-    //   levels.length = 0;
-    //   ratings.length = 0;
-    //   btnPlay.classList.remove('hide');
-    // }
   }
 }
 
@@ -455,6 +432,35 @@ btnSound.addEventListener("click", function () {
       : "Enable sound";
   this.setAttribute("aria-label", ariaLabel);
   this.classList.toggle("btn-sound-off");
+});
+
+about.addEventListener('click', function(event) {
+  // background_users.src = usersImages[index]; 
+  
+  modal_about.classList.add('active')
+  about.classList.add('active')
+  modal_about.style.opacity = '1'
+  index++;
+  index = index % modalImages.length;
+  modal_background.src = modalImages[index]; 
+  modal_background.style.display = 'block'
+});
+
+close_btn.addEventListener('click', function(event){
+  modal_about.classList.remove('active')
+  modal_about.style.opacity = '0'
+  console.log("close modal about")
+})
+
+window.addEventListener('click', function (event) {
+  if (event.target === modal_about) {
+  modal_about.classList.remove('active')
+  modal_about.style.opacity = '0'
+  }
+  // if (event.target === show_modal) {
+  //   show_modal.classList.remove('active')
+  //   show_modal.style.opacity = '0'
+  //   }
 });
 
 function startGame(){

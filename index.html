@@ -29,6 +29,7 @@
     <li><span>Image 05</span></li>
     <li><span>Image 06</span></li>
     <li><span>Image 07</span></li>
+    <li><span>Image 08</span></li>
   </ul>
   <section class="sound">
     <audio id="sound_lose" src="./sound/fail_champions.mp3"></audio>
@@ -47,20 +48,6 @@
   </header>
 
   <main class="main_container" id="main_container">
-    <!-- <div class="pallet">
-      <div class="circle">
-        <div>
-          <div id="blue" class="sky blue color circle12" data-color="blue"></div>
-          <div id="orange" class="orange color circle13" data-color="orange"></div>
-        </div>
-        <div>
-          <div id="violet" class="violet color circle10" data-color="violet"></div>
-          <div id="green" class="green color circle11" data-color="green"></div>
-        </div>
-      </div>
-      <button id="btn_playPlay" class="btn_play_play" onclick="startGame()">Play!</button>
-    </div> -->
-    
     <div class="grid grid-btn">
       <h1 class="title">Simon <span>s</span><span>a</span><span>y</span><span>s</span> color</h1>
       <button type="button" class="btn-sound btn-sound-off" aria-label="Enable sound">
@@ -68,6 +55,8 @@
           <path d="M6 7l8-5v20l-8-5v-10zm-6 10h4v-10h-4v10zm20.264-13.264l-1.497 1.497c1.847 1.783 2.983 4.157 2.983 6.767 0 2.61-1.135 4.984-2.983 6.766l1.498 1.498c2.305-2.153 3.735-5.055 3.735-8.264s-1.43-6.11-3.736-8.264zm-.489 8.264c0-2.084-.915-3.967-2.384-5.391l-1.503 1.503c1.011 1.049 1.637 2.401 1.637 3.888 0 1.488-.623 2.841-1.634 3.891l1.503 1.503c1.468-1.424 2.381-3.309 2.381-5.394z" />
         </svg>
       </button>
+      <button class="icon info" id="about"></button>
+      <!-- <span class="description">About</span> -->
     </div>
     
     <div class="header_top">
@@ -80,7 +69,7 @@
         <p id="points">0</p>
       </div>
     </div>
-    
+
     <div class="gameboard" id="gameboard">
       <div class="circle">
         <div id="blue" class="sky blue color left" data-color="blue"></div>
@@ -90,19 +79,6 @@
       </div>
       <button id="btnPlay" class="btn_play" onclick="startGame()"></button>
     </div>
-    <!-- <div class="pallet">
-      <div class="circle">
-        <div>
-          <div id="blue" class="sky blue color circle12" data-color="blue"></div>
-          <div id="orange" class="orange color circle13" data-color="orange"></div>
-        </div>
-        <div>
-          <div id="violet" class="violet color circle10" data-color="violet"></div>
-          <div id="green" class="green color circle11" data-color="green"></div>
-        </div>
-      </div>
-      <button id="btnPlay" class="btn_play" onclick="startGame()"></button>
-    </div> -->
 
     <div class="show_modal">
       <img class="overlay" id="overlay_image" src="./assets/gif/6ob.gif" alt="">
@@ -126,6 +102,23 @@
           <img src="./assets/gif/6ob.gif" alt="">
           <img src="./assets/gif/6ob.gif" alt=""> -->
         </div>
+      </div>
+    </div>
+
+    <div class="modal_about">
+      <div class="modal_box" id="">
+        <div class="modal_image">
+          <img src="" id="modal_background" alt="">
+        </div>
+        <div class="modal_content">
+          <h1>Welcome!</h1>
+          <p>The game is extremely interesting, where each color palette lights up, you must click on the color palette to continue to the next level. Just memorize the order in which the color palette lights up and repeat in order. Gook luck champion...</p>
+          <!-- <footer class="footer_modal">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg>
+            <a href="https://github.com/brunomaldonado/Simon-says" target="_blank"> Rigoberto Bruno Mdo. </a>
+          </footer> -->
+        </div>
+        <button class="close_btn"></button>
       </div>
     </div>
 
